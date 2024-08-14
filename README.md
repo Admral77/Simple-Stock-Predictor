@@ -1,16 +1,16 @@
 # Stock Price Prediction using LSTM
 
-This repository contains a Python script to predict stock prices using a Long Short-Term Memory (LSTM) neural network. The model is trained on historical stock price data and uses technical indicators as features.
+This repository contains a Python script that predicts stock prices using a Long Short-Term Memory (LSTM) neural network. The script is designed to be flexible, allowing users to easily modify parameters and test different stocks.
 
 ## Features
-- Data Collection: Downloads historical stock data using `yfinance`.
-- Data Preprocessing: Computes technical indicators such as SMA, RSI, Momentum, and Volatility.
-- LSTM Model: Constructs and trains an LSTM model for predicting stock prices.
-- Model Evaluation: Evaluates the model using RMSE and plots actual vs. predicted stock prices.
+- **Data Collection:** Downloads historical stock data using `yfinance`.
+- **Data Preprocessing:** Computes technical indicators such as Simple Moving Averages (SMA), Relative Strength Index (RSI), Momentum, and Volatility.
+- **LSTM Model:** Constructs and trains an LSTM model for predicting stock prices.
+- **Model Evaluation:** Evaluates the model using Root Mean Squared Error (RMSE) and plots the actual vs. predicted stock prices.
 
 ## Installation
 
-To set up your environment and install the required packages, create a virtual environment and use the `requirements.txt` file.
+To set up your environment and install the required packages, follow these steps:
 
 1. **Create a virtual environment:**
 
@@ -37,24 +37,41 @@ To set up your environment and install the required packages, create a virtual e
 
 ## Usage
 
-1. **Run the script:**
+1. **Edit the Script:**
+
+    Open `StockPredict.py` in your preferred text editor or IDE. You can modify the following parameters:
+    
+    - **`ticker`:** Change this variable to the stock symbol you want to analyze. For example, use `"GOOGL"` for Alphabet Inc.
+    - **Date Range:** Adjust the `start` and `end` dates in the `yf.download()` function to fit the time period you want to analyze.
+    - **Technical Indicators:** You can modify the parameters for the technical indicators, such as the window sizes for SMA, RSI, and others.
+
+2. **Run the Script:**
+
+    Execute the script using the following command:
 
     ```bash
-    python stock_prediction.py
+    python StockPredict.py
     ```
 
-    Ensure that the script file is named `stock_prediction.py` or update the command to reflect the actual script name.
+    This will:
+    - Download the stock data for the specified ticker and date range.
+    - Preprocess the data and compute the technical indicators.
+    - Train an LSTM model on the data.
+    - Evaluate the model's performance and display a plot comparing actual and predicted stock prices.
 
-2. **Visualize Results:**
+3. **Customizing the Model:**
 
-    The script will output the Root Mean Squared Error (RMSE) and display a plot comparing actual and predicted stock prices.
+    - **LSTM Configuration:** You can adjust the number of LSTM units, dropout rates, and other parameters in the model architecture.
+    - **Training Parameters:** Modify the number of epochs, batch size, and early stopping criteria to optimize the training process.
 
-## License
+4. **Visualizing Results:**
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+    After running the script, a plot will be displayed showing the actual vs. predicted stock prices. You can save or customize this plot by modifying the plotting section of the script.
 
-## Acknowledgements
+## Example
 
-- [yfinance](https://github.com/ranaroussi/yfinance)
-- [TA-Lib](https://github.com/bukosabino/ta)
-- [TensorFlow](https://www.tensorflow.org/)
+Here’s a quick example of how to change the stock ticker and date range:
+
+```python
+ticker = "GOOGL"  # Change to your desired stock symbol
+stock_data = yf.download(ticker, start="2015-01-01", end="2022-01-01")
