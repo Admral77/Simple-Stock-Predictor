@@ -76,8 +76,6 @@ Here’s a quick example of how to change the stock ticker and date range:
 ticker = "GOOGL"  # Change to your desired stock symbol
 stock_data = yf.download(ticker, start="2015-01-01", end="2022-01-01")
 ```
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 Acknowledgements
 yfinance for stock data.
